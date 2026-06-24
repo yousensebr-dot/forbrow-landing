@@ -195,7 +195,7 @@ fbq('track', 'PageView');
           <li style="visibility:hidden;"><span class="kf-check">✓</span> Frete grátis</li>
           <li style="visibility:hidden;"><span class="kf-check">✓</span> Placeholder</li>
         </ul>
-        <a href="https://yousense.com.br?add_to_cart=239855145&variant_id=1062798924&buyButton=true" class="btn-kit" target="_blank">Iniciar tratamento →</a>
+        <div id="nuvem-buy-239855145"></div>
         <p class="kit-microcopy">Ideal para conhecer o FORBROW e iniciar sua rotina de tratamento. O resultado completo costuma exigir o ciclo de 90 dias.</p>
       </div>
       <div class="kit-card featured">
@@ -216,7 +216,7 @@ fbq('track', 'PageView');
           <li><span class="kf-check">✓</span> Aplicador de precisão</li>
           <li><span class="kf-check">✓</span> Frete grátis</li>
         </ul>
-        <a href="https://yousense.com.br?add_to_cart=351730976&variant_id=1547157519&buyButton=true" class="btn-kit featured" target="_blank">Iniciar tratamento →</a>
+        <div id="nuvem-buy-351730976"></div>
         <p class="kit-microcopy featured">Ciclo recomendado para resultados visíveis e consistentes.</p>
       </div>
       <div class="kit-card">
@@ -238,7 +238,7 @@ fbq('track', 'PageView');
           <li><span class="kf-check">✓</span> Frete grátis</li>
           <li><span class="kf-check">✓</span> Necessaire personalizada</li>
         </ul>
-        <a href="https://yousense.com.br?add_to_cart=240529344&variant_id=1055878490&buyButton=true" class="btn-kit" target="_blank">Iniciar tratamento →</a>
+        <div id="nuvem-buy-240529344"></div>
         <p class="kit-microcopy">Para um ciclo completo de transformação progressiva.</p>
       </div>
     </div>
@@ -688,6 +688,33 @@ fbq('track', 'PageView');
 
 
 <script src="js/main.js"></script>
+
+<!-- Nuvemshop Buy Buttons -->
+<script>
+(function() {
+  var src = "https://app.buybutton.com.br/widget.js";
+  var products = [
+    {"id":"239855145","divId":"nuvem-buy-239855145","storeId":4063801,"product":{"id":"239855145","title":"FORBROW","price":123,"currency":"BRL","image":"https://acdn-us.mitiendanube.com/stores/004/063/801/products/b445c8dde8b2fb9c9ff79100c84e8901-e0fc08ed74cf1cb87817820922595573-1024-1024.jpg","variants":[{"id":"1062798924","label":"Padrão","price":123,"values":[]}],"attributes":[],"permalink":"https://yousense.lojavirtualnuvem.com.br/produtos/forbrow","storeUrl":"https://yousense.lojavirtualnuvem.com.br"},"config":{"kind":"product","productId":"239855145","variant":"default","layout":"basic","action":"direct-checkout","label":"Iniciar tratamento →","cornerRadius":0,"buttonWidth":100,"bgColor":"#F5F5F0","textColor":"#0A0A0A","fontFamily":"Helvetica Neue","fontSize":14,"fontWeight":"bold","showImage":false,"showPrice":false,"showQuantity":false,"cartType":"drawer","cartAccentColor":"#3D4A38"}},
+    {"id":"351730976","divId":"nuvem-buy-351730976","storeId":4063801,"product":{"id":"351730976","title":"BROW DUO","price":246,"currency":"BRL","image":"https://acdn-us.mitiendanube.com/stores/004/063/801/products/b445c8dde8b2fb9c9ff79100c84e8901-209cd50307dddbce1817820922626007-1024-1024.jpg","variants":[{"id":"1547157519","label":"Padrão","price":246,"values":[]}],"attributes":[],"permalink":"https://yousense.lojavirtualnuvem.com.br/produtos/brow-duo-wrrws","storeUrl":"https://yousense.lojavirtualnuvem.com.br"},"config":{"kind":"product","productId":"351730976","variant":"default","layout":"basic","action":"direct-checkout","label":"Iniciar tratamento →","cornerRadius":0,"buttonWidth":100,"bgColor":"#0A0A0A","textColor":"#F5F5F0","fontFamily":"Helvetica Neue","fontSize":14,"fontWeight":"bold","showImage":false,"showPrice":false,"showQuantity":false,"cartType":"drawer","cartAccentColor":"#3D4A38"}},
+    {"id":"240529344","divId":"nuvem-buy-240529344","storeId":4063801,"product":{"id":"240529344","title":"BROW TRIO","price":290,"currency":"BRL","image":"https://acdn-us.mitiendanube.com/stores/004/063/801/products/33d26c599bb20a188b07ec46538e4053-e384d53bd9e28fa8cc17807848124461-1024-1024.jpg","variants":[{"id":"1055878490","label":"Padrão","price":290,"values":[]}],"attributes":[],"permalink":"https://yousense.lojavirtualnuvem.com.br/produtos/brow-trio-217ji","storeUrl":"https://yousense.lojavirtualnuvem.com.br"},"config":{"kind":"product","productId":"240529344","variant":"default","layout":"basic","action":"direct-checkout","label":"Iniciar tratamento →","cornerRadius":0,"buttonWidth":100,"bgColor":"#F5F5F0","textColor":"#0A0A0A","fontFamily":"Helvetica Neue","fontSize":14,"fontWeight":"bold","showImage":false,"showPrice":false,"showQuantity":false,"cartType":"drawer","cartAccentColor":"#3D4A38"}}
+  ];
+
+  function mountAll() {
+    products.forEach(function(p) {
+      var el = document.getElementById(p.divId);
+      if (el) window.NuvemBuyButton.render(el, {storeId: p.storeId, validateUrl: "https://app.buybutton.com.br/api/billing/widget-check", product: p.product, config: p.config});
+    });
+  }
+
+  if (window.NuvemBuyButton) { mountAll(); return; }
+  var s = document.createElement("script");
+  s.src = src;
+  s.async = true;
+  s.setAttribute("data-nuvem-buy-button", "1");
+  s.addEventListener("load", mountAll);
+  document.head.appendChild(s);
+})();
+</script>
 </body>
 </html>
 
